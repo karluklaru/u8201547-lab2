@@ -9,16 +9,16 @@ use Illuminate\Support\Facades\DB;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Banner>
  */
-class CatalogBannerFactory extends Factory
+class CategoryBannerFactory extends Factory
 {
    
     public function definition(): array
     {
-        $catalogsIds = DB::table('catalogs')->pluck('id');
+        $catalogsIds = DB::table('categories')->pluck('id');
         $bannersIds = DB::table('banners')->pluck('id');
 
         return [
-            'catalog_id' => fake()->randomElement($bannersIds),
+            'category_id' => fake()->randomElement($bannersIds),
             'banner_id' => fake()->randomElement($catalogsIds),
         ];
     }

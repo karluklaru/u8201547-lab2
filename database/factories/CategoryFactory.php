@@ -8,7 +8,7 @@ use DateTime;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Catalog>
  */
-class CatalogFactory extends Factory
+class CategoryFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,12 +17,13 @@ class CatalogFactory extends Factory
      */
     public function definition(): array
     {
+        $name = fake()->text(15);
         return [
-            'name' => fake()->name(),
+            'name' => $name,
                 'is_active' => true,
-                'slug' => fake()->randomNumber(),
+                'code' => Str::slug($name, '-'),
                 'created_date' => randomDateInRange(new DateTime("2019-01-01"), new DateTime("2022-01-01")),
-                'parent_category' => fake()->sentence(10),
+                'parent_category' => fake()->text(20),
                 
         ];
     }

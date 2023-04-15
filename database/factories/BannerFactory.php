@@ -24,8 +24,8 @@ class BannerFactory extends Factory
                 'is_active' => true,
                 'active_since' => randomDateInRange(new DateTime("2015-01-01"), new DateTime("2018-01-01")),
                 'active_until' => randomDateInRange(new DateTime("2018-01-01"), new DateTime("2022-01-01")),
-                'link_in_banner' => 'http://'.fake()->sentence(10).'.ru',
-                'image_file' => fake()->sentence(10).'.jpg',
+                'link_in_banner' => 'http://'.fake()->sentence(10).'ru',
+                'image_file' => fake()->sentence(10).'jpg',
             
         ];
     }

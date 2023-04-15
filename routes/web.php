@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('/category/{code}', [CategoryController::class, 'top5Banners'])->name('top5Banners');
+//Route::get('/category/{code}', 
+  //          [CategoryController::class, 'filterBanners'])->name('filterBanners');

@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 
 use App\Models\Banner;
+use Illuminate\Support\Facades\DB;
 
 class DeactivateBanner extends Command
 {
@@ -30,7 +31,9 @@ class DeactivateBanner extends Command
         try { 
             $bannerId = (int)$this->argument('id');
 
-            Banner::findOrFail($bannerId)->is_active = false;
+            DB::table('banners')
+            ->where('id', $bannerId)
+            ->update(['is_active' => false]);
         }
         catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
             $this->error("Banner with id <$bannerId> not exist");

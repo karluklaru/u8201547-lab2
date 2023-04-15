@@ -5,13 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Catalog extends Model
+class CategoryBanner extends Model
 {
     use HasFactory;
-
+    
     public $timestamps = false;
-    public function roles()
-    {
-        return $this->belongsToMany('App\Banner');
-    }
+    protected $table = 'category_banner';
+    
 }

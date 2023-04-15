@@ -12,6 +12,6 @@ class Banner extends Model
     public $timestamps = false;
     public function roles()
     {
-        return $this->belongsToMany('App\Catalog');
+        return $this->belongsToMany('App\Category');
     }
 }

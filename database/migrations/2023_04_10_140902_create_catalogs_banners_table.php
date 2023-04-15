@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('catalog_banner', function (Blueprint $table) {
+        Schema::create('category_banner', function (Blueprint $table) {
             $table->id();
 
             $table->foreignId('banner_id')
@@ -20,9 +20,9 @@ return new class extends Migration
             ->cascadeOnDelete()
             ->cascaseOnUpdate();
 
-            $table->foreignId('catalog_id')
+            $table->foreignId('category_id')
                 ->references('id')
-                ->on('catalogs')
+                ->on('categories')
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
 
@@ -35,6 +35,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('catalogs_banners');
+        Schema::dropIfExists('category_banner');
     }
 };
